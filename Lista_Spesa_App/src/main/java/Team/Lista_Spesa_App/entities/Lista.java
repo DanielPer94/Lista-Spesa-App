@@ -33,10 +33,20 @@ public class Lista {
 	private List<Lista> liste;
 
 
-	public void addAttribute(String string, List<Lista> recuperaTutti) {
-		
-		throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
-	}
+
+
+    public void addAttribute(String string, List<Lista> recuperaTutti) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
+    }
+
+
+
+
+    public void addAttribute(String string, Lista recuperaTutti) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
+    }
 
 
 

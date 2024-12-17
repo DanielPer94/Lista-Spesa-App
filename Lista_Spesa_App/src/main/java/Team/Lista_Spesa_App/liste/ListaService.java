@@ -42,5 +42,6 @@ public interface ListaService {
 	 */
 	public void cancella(long id);
 	
+	public List<String> getElencoListe();
 
 }

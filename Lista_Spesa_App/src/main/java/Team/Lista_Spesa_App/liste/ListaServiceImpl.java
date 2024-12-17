@@ -1,5 +1,6 @@
 package Team.Lista_Spesa_App.liste;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,15 @@ public class ListaServiceImpl implements ListaService {
 
 		repo.deleteById(id);
 		
+	}
+	@Override
+	public List<String> getElencoListe() {
+
+		String[] elenco =  {""};
+		Arrays.sort(elenco);
+		
+		return Arrays.asList(elenco);
+		 
 	}
 
 }
