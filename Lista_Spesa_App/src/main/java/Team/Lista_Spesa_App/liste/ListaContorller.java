@@ -1,7 +1,5 @@
 package Team.Lista_Spesa_App.liste;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,66 +17,86 @@ import Team.Lista_Spesa_App.entities.Lista;
 public class ListaContorller {
 
 	
-	private String cartella = "liste";
+	
+
+	private String cartella = "moduli";
 	
 	@Autowired
 	private ListaService service;
 	
 	
 	
-	@GetMapping("/liste")
-	public String liste(Lista lista) {
+	@GetMapping("/lista")
+	public String lista(Model model) {
 		
-		lista.addAttribute("elenco", service.recuperaTutti());
-		return this.cartella + "/liste";
-		
-	}
-	@RequestMapping("/liste")
-	public String getListe(Model model) {
-		
-		model.addAttribute("elenco", service.getElencoListe());
-		
-		return "liste";
+		model.addAttribute("elenco", service.recuperaTutti());
+		return this.cartella + "/lista";
 		
 	}
 
 	
 	
+	@GetMapping("/liste")
+	public String getModulo(@RequestParam("id_liste") long id, Model model, RedirectAttributes ra) {
+		
+		
+		Lista l = service.recuperaUno(id);
+		
+		
+		if(l != null) {
+			model.addAttribute("liste",l);
+			return cartella + "/liste";
+		}
+		
+		
+		ra.addFlashAttribute("messaggio", "ERRORE: modulo non trovato");
+		
+		
+		return "redirect:/" + cartella + "/lista";
+		
+		
+	}
+	
 	
 	
 	@GetMapping("/inserisci")
-	public String inserisci(Lista lista) {
+	public String inserisci(Model model) {
 		
-		lista.addAttribute("nuovo", new Lista());
+		model.addAttribute("nuovo", new Lista());
 		return cartella + "/inserisci";
 		
 	}
 	
 	@PostMapping("/aggiungi")
-	public String aggiungi(@ModelAttribute("nuovo") Lista l, Lista lista) {
+	public String aggiungi(@ModelAttribute("nuovo") Lista l, Model model) {
 		
 	
 		if(service.salva(l))
-			return "redirect:/" +  cartella + "/lista?id=" + l.getId();
+			return "redirect:/" +  cartella + "/modulo?id=" + l.getId();
 		
-		lista.addAttribute("nuovo", l);
 		
+		model.addAttribute("nuovo", l);
+		model.addAttribute("messaggio", "ERRORE: controlla il nome");
 		
 		return cartella + "/inserisci";
 		
 	}
 	
 	
+
 	
 	@GetMapping("/modifica")
-	public String modifica(@RequestParam("id_liste") long id, Lista lista, RedirectAttributes ra) {
-
+	public String modifica(@RequestParam("id_liste") long id, Model model, RedirectAttributes ra) {
+		
+	
 		Lista l = service.recuperaUno(id);
 		
-		// se trovo modulo
+		
 		if(l != null) {
+		
 			
-			lista.addAttribute("liste", l);
+			model.addAttribute("modulo", l);
+			
 			
 			return cartella + "/modifica";
 			
@@ -86,37 +104,55 @@ public class ListaContorller {
 		
 		
 		
-		ra.addFlashAttribute("messaggio", "ERRORE: lista non trovato");
-		
-		// genero la req che si occupa di ricaricare la lista
-		return "redirect:/" + cartella + "/liste";
+		ra.addFlashAttribute("messaggio", "ERRORE: modulo non trovato");
+	
+		return "redirect:/" + cartella + "/lista";
 	}
 	
 	
 	@PostMapping("/aggiorna")
-	public String aggiorna(@ModelAttribute("liste") Lista l, Lista lista) {
+	public String aggiorna(@ModelAttribute("modulo") Lista l, Model model) {
 		
 		
 		if(service.salva(l)) 
-			return "redirect:/" + cartella + "/liste?id=" + l.getId();
-
+			return "redirect:/" + cartella + "/modulo?id=" + l.getId();
+	
 		
-		lista.addAttribute("liste", l);
-		
+		model.addAttribute("modulo", l);
+		model.addAttribute("messaggio", "ERRORE: controlla il nome");
 		
 		return cartella + "/modifica";
 
 	}
 	
-
-	
 	@GetMapping("/cancella")
-	public String cancella(@RequestParam("id") long id) {
+	public String cancella(@RequestParam("id_liste") long id) {
 		
 		service.cancella(id);
-		return "redirect:/" + cartella + "/list";
+		return "redirect:/" + cartella + "/lista";
 		
 	}
-
-    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

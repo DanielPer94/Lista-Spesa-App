@@ -1,0 +1,26 @@
+<div th:replace="header"></div>
+
+	<div id="titolo">
+		<h1>I nostri tutors</h1>
+	</div>
+
+	<section class="sezione">
+	
+		<div class="container">
+		
+			<div class="row d-flex justify-content-center">
+			
+				<div class="col-md-2 tutors mx-1" th:each="nome : ${elenco}">
+				
+					<img th:src="@{'/immagini/tutor/' + ${nome} + '.jpg'}" th:alt="${nome}" th:title="${nome}">
+				
+				</div>
+			
+			</div>
+		
+		</div>
+	
+	</section>
+	
+
+<div th:replace="footer"></div>

@@ -1,0 +1,74 @@
+<div th:replace="header"></div>
+
+	<div id="titolo">
+		<h1 th:text="'Progetto: ' + ${progetto.nome}"></h1>
+	</div>
+	
+	<section class="sezione">
+	
+		<div class="container">
+		
+			
+		<div class="pulsantone">
+
+			<a th:href="@{/progetti/lista}"> 
+				<span class="pulsante3"><i class="fa-solid fa-arrow-left"></i></span>
+			</a>
+
+			<a th:href="@{/progetti/modifica(id=${progetto.id})}"> 
+				<span class="pulsante">Modifica</span>
+			</a>
+			
+			
+			<a class="pulsante" data-bs-toggle="modal" th:data-bs-target="${'#exampleModal' + progetto.id}">cancella</a>
+			
+			<div class="modal fade" th:id="${'exampleModal' + progetto.id}" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Sei sicuro
+										di voler cancellare il progetto?</h5>
+										
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">Indietro</button>
+									<button type="button" class="btn btn-danger"
+										data-bs-dismiss="modal">
+										
+										<a th:href="@{/progetti/cancella(id=${progetto.id})}">Cancella</a>
+										
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+		</div>
+
+			
+			<div class="sezione2">
+			
+				<h2>Descrizione</h2>
+				<p th:text="${progetto.descrizione}"></p>
+			
+			</div>
+			
+			
+			<div class="pulsantone">
+
+				<a th:href="@{/moduli/modulo(id=${progetto.modulo.id})}"> 
+					<span class="pulsante2" th:text="${progetto.modulo.nome}"></span>
+				</a>
+
+			</div>
+		
+		
+		</div>
+		
+	</section>
+
+<div th:replace="footer">footer</div>

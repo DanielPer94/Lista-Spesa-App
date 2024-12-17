@@ -1,0 +1,98 @@
+<div th:replace="header"></div>
+
+<div id="titolo">
+	<h1>Moduli</h1>
+</div>
+
+<section class="sezione">
+
+	<div class="container">
+
+		<div class="pulsantone">
+
+			<a th:href="@{/moduli/inserisci}"> <span class="pulsante">
+					<i class="fa-solid fa-circle-plus"></i> Aggiungi
+			</span>
+			</a>
+
+		</div>
+
+
+			
+
+
+		<!-- 
+			<div class="errore"><p th:text="${messaggio}"></p></div>
+		 -->
+		<p th:class="${messaggio} ? 'alert alert-danger' : '' "
+			th:text="${messaggio}"></p>
+
+
+		<div class="row">
+
+			<div class="col-md-3" th:each="e : ${elenco}">
+
+				<div class="boxettino">
+
+					<a th:href="@{/moduli/modulo(id=${e.id})}">
+						<h2 th:text="${e.nome}"></h2>
+					</a> 
+				
+					<div class="link">	
+					
+						<a th:href="@{/moduli/modifica(id=${e.id})}"> Modifica </a> 
+						<a data-bs-toggle="modal" th:data-bs-target="${'#exampleModal' + e.id}" >cancella</a>
+
+					</div>
+		
+					<div class="modal fade" th:id="${'exampleModal' + e.id}" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Sei sicuro
+										di voler cancellare il modulo?</h5>
+										
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">Indietro</button>
+									<button type="button" class="btn btn-danger"
+										data-bs-dismiss="modal">
+										
+										<a th:href="@{/moduli/cancella(id=${e.id})}">Cancella</a>
+										
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+				</div>
+
+			</div><!-- ciclo -->
+
+		</div>
+
+	</div>
+
+</section>
+
+
+<div th:replace="footer">footer</div>
+
+
+
+
+
+
+
+
+
+
+
