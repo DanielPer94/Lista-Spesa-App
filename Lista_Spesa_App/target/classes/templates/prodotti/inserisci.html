@@ -1,0 +1,55 @@
+<div th:replace="header"></div>
+
+	<div id="titolo">
+		<h1>Aggiungi Prodotto</h1>
+	</div>
+	
+	<section class="sezione">
+	
+		<div class="container">
+		
+			<div class="row">
+			
+				<div class="col-md-4"></div>
+				<div class="col-md-8">
+				
+					 <p th:class="${messaggio} ? 'alert alert-danger' : '' " th:text="${messaggio}"></p>
+		 
+				
+				
+					<form method="post" th:action="@{/prodotti/aggiungi}" th:object="${nuovo}">
+					
+						<div class="mb-3">
+							<label for="nome" class="form-label">Inserisci nome</label>
+							<input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+						</div>
+						
+				
+						
+						<div class="mb-3">
+						
+							<label for="moduli" class="form-label">Scegli Lista:</label>
+							
+							<select th:field="*{modulo}" class="form-select">
+								<option th:each="m : ${moduli}" th:text="${m.nome}" th:value="${m.id}"></option>
+							</select>	
+							
+						</div>
+						
+						<input type="submit" class="btn btn-primary" value="Aggiungi">
+
+					</form>
+				
+					
+				
+				</div>	
+			
+			
+			</div>
+		
+		
+		</div>
+		
+	</section>
+
+<div th:replace="footer">footer</div>

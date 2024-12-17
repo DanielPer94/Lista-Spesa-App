@@ -1,0 +1,82 @@
+<div th:replace="header"></div>
+
+	<div id="titolo">
+		<h1>Modifica Progetto</h1>
+	</div>
+	
+	<section class="sezione">
+	
+		<div class="container">
+		
+			<div class="row">
+			
+				<div class="col-md-4"></div>
+				<div class="col-md-8">
+				
+					 <p th:class="${messaggio} ? 'alert alert-danger' : '' " th:text="${messaggio}"></p>
+		 
+				
+					<!--  
+						
+						FORM permette di gestire inserimento dati dell'utente
+						
+							METHOD 	metodologia con cui passare i dati al server
+									
+									GET 	i dati passano nell'url
+									POST	i dati passano nell'intestazione http
+											(dati "nascosti")
+									
+							ACTION 	definisco url della request che gestirà la richiesta
+									viene attivato a seguito di click sul pulsante submit
+									
+							
+							th:OBJECT definisco l'oggetto dove salvare i dati
+											l'oggetto deve essere nel Model
+												
+							
+							INPUT 
+								TYPE text, number, email, password, submit...					
+												
+					-->
+				
+					<form method="post" th:action="@{/progetti/aggiorna}" th:object="${progetto}">
+					
+						<input type="hidden" th:field="*{id}">
+					
+						<div class="mb-3">
+							<label for="nome" class="form-label">Inserisci nome</label>
+							<input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+						</div>
+						
+						<div class="mb-3">
+							<label for="descrizione" class="form-label">Inserisci descrizione</label>
+							<textarea type="text" class="form-control" id="descrizione" th:field="*{descrizione}" required></textarea>
+						</div>
+						
+						<div class="mb-3">
+						
+							<label for="moduli" class="form-label">Scegli modulo:</label>
+							
+							<select th:field="*{modulo}" class="form-select">
+								<option th:each="m : ${moduli}" th:text="${m.nome}" th:value="${m.id}"></option>
+							</select>	
+							
+						</div>
+						
+						<input type="submit" class="btn btn-primary" value="Aggiorna">
+
+					</form>
+				
+					
+				
+				</div>	
+			
+			
+			</div>
+		
+		
+		</div>
+		
+	</section>
+
+<div th:replace="footer">footer</div>

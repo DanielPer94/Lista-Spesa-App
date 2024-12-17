@@ -16,8 +16,7 @@ import Team.Lista_Spesa_App.entities.Lista;
 @RequestMapping("/liste")
 public class ListaContorller {
 
-	
-	
+
 
 	private String cartella = "moduli";
 	

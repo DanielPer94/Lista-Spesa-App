@@ -8,10 +8,10 @@
 		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>it.academylab.masterclass</groupId>
-	<artifactId>masterclass</artifactId>
+	<groupId>Team.Lista_Spesa_App</groupId>
+	<artifactId>listaspesa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>masterclass</name>
+	<name>listaspesa</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
