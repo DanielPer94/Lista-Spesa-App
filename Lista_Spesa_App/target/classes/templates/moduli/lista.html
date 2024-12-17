@@ -1,7 +1,7 @@
 <div th:replace="header"></div>
 
 <div id="titolo">
-	<h1>Moduli</h1>
+	<h1>Liste</h1>
 </div>
 
 <section class="sezione">
@@ -10,7 +10,7 @@
 
 		<div class="pulsantone">
 
-			<a th:href="@{/moduli/inserisci}"> <span class="pulsante">
+			<a th:href="@{/liste/inserisci}"> <span class="pulsante">
 					<i class="fa-solid fa-circle-plus"></i> Aggiungi
 			</span>
 			</a>
@@ -40,7 +40,7 @@
 				
 					<div class="link">	
 					
-						<a th:href="@{/moduli/modifica(id=${e.id})}"> Modifica </a> 
+						<a th:href="@{/liste/modifica(id=${e.id})}"> Modifica </a> 
 						<a data-bs-toggle="modal" th:data-bs-target="${'#exampleModal' + e.id}" >cancella</a>
 
 					</div>
@@ -62,7 +62,7 @@
 									<button type="button" class="btn btn-danger"
 										data-bs-dismiss="modal">
 										
-										<a th:href="@{/moduli/cancella(id=${e.id})}">Cancella</a>
+										<a th:href="@{/liste/cancella(id=${e.id})}">Cancella</a>
 										
 									</button>
 								</div>

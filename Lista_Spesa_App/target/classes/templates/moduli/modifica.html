@@ -1,7 +1,7 @@
 <div th:replace="header"></div>
 
 	<div id="titolo">
-		<h1>Aggiorna Modulo</h1>
+		<h1>Aggiorna Liste</h1>
 	</div>
 	
 	<section class="sezione">
@@ -39,13 +39,13 @@
 												
 					-->
 				
-					<form method="post" th:action="@{/moduli/aggiorna}" th:object="${modulo}">
+					<form method="post" th:action="@{/liste/aggiorna}" th:object="${modulo}">
 					
 						<input type="hidden" th:field="*{id}">
 					
 						<div class="mb-3">
 							<label for="nome" class="form-label">Inserisci nome</label>
-							<input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+							<input type="text" class="form-control" id="nome_liste" th:field="*{nome}" required>
 						</div>
 						
 						<div class="mb-3">
