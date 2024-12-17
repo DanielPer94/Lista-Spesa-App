@@ -32,5 +32,10 @@ public class Lista {
 	@OneToMany(mappedBy = "liste")
 	@ToString.Exclude
 	private List<Lista> liste;
-	
+
+	public void addAttribute(String string, Lista l) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
+	}
+
 }

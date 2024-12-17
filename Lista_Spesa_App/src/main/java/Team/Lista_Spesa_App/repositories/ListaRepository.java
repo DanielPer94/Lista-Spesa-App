@@ -9,7 +9,7 @@ import Team.Lista_Spesa_App.entities.Lista;
 @Repository
 public interface ListaRepository extends JpaRepository<Lista, Long> {
 	
-	// select * from modulo order by nome
+	
 	public List<Lista> findAllByOrderByNome();
 	
 	

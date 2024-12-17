@@ -12,7 +12,7 @@ public interface ListaService {
 	 * @return lista con elementi
 	 */
 	
-	public List<Lista> recuperaTutti();
+	public List <Lista> recuperaTutti();
 	
 	/**
 	 * Metodo che permette di recuperare i dati 
@@ -30,7 +30,7 @@ public interface ListaService {
 	 * Modifica: se oggetto trovato (perchè contiene id valido nel parametro)
 	 * 
 	 * 
-	 * @param m oggetto da salvare
+	 * @param l oggetto da salvare
 	 * @return true quando l'operazione va a buon fine, false altrimenti
 	 */
 	public boolean salva(Lista l);
