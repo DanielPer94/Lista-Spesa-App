@@ -35,6 +35,12 @@ import java.util.List;
         @OneToMany(mappedBy = "prodotti")
         @ToString.Exclude
         private List<Prodotti> prodotti;
+
+
+		public String getid() {
+			// TODO Auto-generated method stub
+			return null;
+		}
     
 }
 

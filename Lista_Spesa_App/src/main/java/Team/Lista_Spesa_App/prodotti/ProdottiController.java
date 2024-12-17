@@ -67,7 +67,7 @@ public class ProdottiController {
 	public String aggiungi(@ModelAttribute("nuovo") Prodotti p, Model model) {
 		
 		if(service.salva(p))
-			return "redirect:/" + cartella + "/prodotto?id=" + p.getId();
+			return "redirect:/" + cartella + "/prodotto?id=" + p.getid();
 		
 		model.addAttribute("messaggio", "ERRORE: controlla i dati");
 		model.addAttribute("nuovo", p);
@@ -98,7 +98,7 @@ public class ProdottiController {
 	public String aggiorna(@ModelAttribute("prodotto") Prodotti p, Model model) {
 		
 		if(service.salva(p))
-			return "redirect:/" + cartella + "/prodotto?id=" + p.getId();
+			return "redirect:/" + cartella + "/prodotto?id=" + p.getid();
 		
 		model.addAttribute("messaggio", "ERRORE: controlla i dati");
 		model.addAttribute("prodotto", p);

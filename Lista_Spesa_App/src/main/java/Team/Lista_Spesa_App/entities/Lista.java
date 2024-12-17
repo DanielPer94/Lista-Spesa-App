@@ -50,4 +50,12 @@ public class Lista {
 
 
 
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }
