@@ -38,7 +38,7 @@ public class ProdottiController {
 
 	
 	@GetMapping("/prodotto")
-	public String getProgetto(@RequestParam("id_prodtti") long id, Model model, RedirectAttributes ra) {
+	public String getProdotto(@RequestParam("id_prodtti") long id, Model model, RedirectAttributes ra) {
 		
 		Prodotti p = service.recuperaUno(id);
 		
@@ -71,7 +71,7 @@ public class ProdottiController {
 		
 		model.addAttribute("messaggio", "ERRORE: controlla i dati");
 		model.addAttribute("nuovo", p);
-		model.addAttribute("moduli", serviceL.recuperaTutti());		
+		model.addAttribute("prodotto", serviceL.recuperaTutti());		
 				
 		return cartella + "/inserisci";
 		

@@ -1,7 +1,12 @@
 {
     "configurations": [
-        
-        
+        {
+            "type": "java",
+            "name": "ListaSpesaAppApplication",
+            "request": "launch",
+            "mainClass": "Team.Lista_Spesa_App.ListaSpesaAppApplication",
+            "projectName": "masterclass"
+        },
         {
             "type": "java",
             "name": "Launch Java Program",
