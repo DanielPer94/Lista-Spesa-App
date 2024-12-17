@@ -9,7 +9,7 @@ import ch.qos.logback.core.model.Model;
 public class AcquistiController {
 
     @Autowired
-	private AcquistiService service;
+	//private AcquistiService service;
 	
 	@RequestMapping("/acquisti")
 	public String getAcquisti(Model model) {

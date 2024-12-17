@@ -8,7 +8,6 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String homepage() {
-		// restituisco nome della view (file senza estensione html) 
 		return "index";
 	}
 	
