@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        
+
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": ""
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch add-on",
+            "addonPath": "${workspaceFolder}"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ListaSpesaAppApplication<Lista_Spesa_App>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "Team.Lista_Spesa_App.ListaSpesaAppApplication",
+            "projectName": "Lista_Spesa_App",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

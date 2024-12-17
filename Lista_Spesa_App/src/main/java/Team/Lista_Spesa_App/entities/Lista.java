@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,14 +27,17 @@ public class Lista {
 	@Column(name="nome_lista")
 	private String nome;
 	
-	//da controllare -----
+	
 	@OneToMany(mappedBy = "liste")
 	@ToString.Exclude
 	private List<Lista> liste;
 
-	public void addAttribute(String string, Lista l) {
-		// TODO Auto-generated method stub
+
+	public void addAttribute(String string, List<Lista> recuperaTutti) {
+		
 		throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
 	}
+
+
 
 }
