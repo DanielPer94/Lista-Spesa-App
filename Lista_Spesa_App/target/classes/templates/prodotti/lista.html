@@ -26,14 +26,14 @@
 
 				<div class="boxettino">
 
-					<a th:href="@{/progetti/progetto(id=${e.id})}">
+					<a th:href="@{/prodotti/prodotto(id=${e.id})}">
 						<h2 th:text="${e.nome}"></h2> 
 					</a>
 					
 					
 					<div class="link">	
 					
-						<a th:href="@{/progetti/modifica(id=${e.id})}"> Modifica </a> 
+						<a th:href="@{/prodotti/modifica(id=${e.id})}"> Modifica </a> 
 						<a data-bs-toggle="modal" th:data-bs-target="${'#exampleModal' + e.id}" >cancella</a>
 
 					</div>
@@ -55,7 +55,7 @@
 									<button type="button" class="btn btn-danger"
 										data-bs-dismiss="modal">
 										
-										<a th:href="@{/progetti/cancella(id=${e.id})}">Cancella</a>
+										<a th:href="@{/prodotti/cancella(id=${e.id})}">Cancella</a>
 										
 									</button>
 								</div>

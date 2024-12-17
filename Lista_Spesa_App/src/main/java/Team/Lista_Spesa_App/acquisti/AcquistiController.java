@@ -14,7 +14,7 @@ public class AcquistiController {
 	@RequestMapping("/acquisti")
 	public String getAcquisti(Model model) {
 		
-	//	model.addAttribute("elenco", service.getElencoAcqusiti());
+//	model.addAttribute("elenco", service.getElencoAcqusiti());
 		
 		return "acqusiti";
 		

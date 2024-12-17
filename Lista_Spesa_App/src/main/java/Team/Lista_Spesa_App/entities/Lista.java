@@ -36,7 +36,7 @@ public class Lista {
 
 
     public void addAttribute(String string, List<Lista> recuperaTutti) {
-        // TODO Auto-generated method stub
+      
         throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
     }
 
@@ -44,7 +44,7 @@ public class Lista {
 
 
     public void addAttribute(String string, Lista recuperaTutti) {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'addAttribute'");
     }
 
