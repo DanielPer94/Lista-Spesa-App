@@ -14,7 +14,7 @@ import Team.Lista_Spesa_App.entities.Prodotti;
 import Team.Lista_Spesa_App.liste.ListaService;
 
 @Controller
-@RequestMapping("/prodotti")
+@RequestMapping("/prodotto")
 public class ProdottiController {
 
 
@@ -28,27 +28,27 @@ public class ProdottiController {
 	
 
 	
-	@GetMapping("/lista")
+	@GetMapping("/prodotto")
 	public String lista(Model model) {
 		
 		model.addAttribute("elenco" , service.recuperaTutti());
 		
-		return this.cartella + "/lista";
+		return this.cartella + "/prodotto";
 	}
 
 	
-	@GetMapping("/prodotti")
-	public String getProgetto(@RequestParam("id_prod") long id, Model model, RedirectAttributes ra) {
+	@GetMapping("/prodotto")
+	public String getProgetto(@RequestParam("id_prodtti") long id, Model model, RedirectAttributes ra) {
 		
 		Prodotti p = service.recuperaUno(id);
 		
 		if(p != null) {
-			model.addAttribute("progetto", p);
-			return cartella + "/progetto";
+			model.addAttribute("prodotto", p);
+			return cartella + "/prodotto";
 		}
 		
 		ra.addFlashAttribute("messaggio", "ERRORE: progetto non trovato");
-		return "redirect:/" + cartella + "/lista";
+		return "redirect:/" + cartella + "/prodotto";
 	
 	}
 	
@@ -58,7 +58,7 @@ public class ProdottiController {
 	public String inserisci(Model model) {
 		
 		model.addAttribute("nuovo", new Prodotti());
-		model.addAttribute("lise", serviceL.recuperaTutti());		
+		model.addAttribute("prodotto", serviceL.recuperaTutti());		
 		
 		return cartella + "/inserisci";
 	}
@@ -67,7 +67,7 @@ public class ProdottiController {
 	public String aggiungi(@ModelAttribute("nuovo") Prodotti p, Model model) {
 		
 		if(service.salva(p))
-			return "redirect:/" + cartella + "/progetto?id=" + p.getId();
+			return "redirect:/" + cartella + "/prodotto?id=" + p.getId();
 		
 		model.addAttribute("messaggio", "ERRORE: controlla i dati");
 		model.addAttribute("nuovo", p);
@@ -79,30 +79,30 @@ public class ProdottiController {
 	
 	
 	@GetMapping("/modifica")
-	public String modifica(@RequestParam("id_prod") long id, Model model, RedirectAttributes ra) {
+	public String modifica(@RequestParam("id_prodotto") long id, Model model, RedirectAttributes ra) {
 		
 		Prodotti p = service.recuperaUno(id);
 		
 		if(p != null) {
-			model.addAttribute("prodotti", p);
-			model.addAttribute("liste", serviceL.recuperaTutti());
+			model.addAttribute("prodotto", p);
+			model.addAttribute("prodotto", serviceL.recuperaTutti());
 			return cartella + "/modifica";
 		}
 		
 		ra.addFlashAttribute("messaggio", "ERRORE: progetto non trovato");
-		return "redirect:/" + cartella + "/lista";
+		return "redirect:/" + cartella + "/prodotto";
 	
 	}
 	
 	@PostMapping("/aggiorna")
-	public String aggiorna(@ModelAttribute("progetto") Prodotti p, Model model) {
+	public String aggiorna(@ModelAttribute("prodotto") Prodotti p, Model model) {
 		
 		if(service.salva(p))
-			return "redirect:/" + cartella + "/progetto?id=" + p.getId();
+			return "redirect:/" + cartella + "/prodotto?id=" + p.getId();
 		
 		model.addAttribute("messaggio", "ERRORE: controlla i dati");
-		model.addAttribute("prodotti", p);
-		model.addAttribute("liste", serviceL.recuperaTutti());		
+		model.addAttribute("prodotto", p);
+		model.addAttribute("prodotto", serviceL.recuperaTutti());		
 				
 		return cartella + "/modifica";
 		
@@ -111,11 +111,11 @@ public class ProdottiController {
 	
 
 	@GetMapping("/cancella")
-	public String cancella(@RequestParam("id_prod") long id) {
+	public String cancella(@RequestParam("id_prodotti") long id) {
 		
 		service.cancella(id);
 		
-		return "redirect:/" + cartella + "/lista";
+		return "redirect:/" + cartella + "/prodotto";
 		
 	}
 	

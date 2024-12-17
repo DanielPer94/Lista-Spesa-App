@@ -13,12 +13,12 @@ import org.springframework.ui.Model;
 import Team.Lista_Spesa_App.entities.Lista;
 
 @Controller
-@RequestMapping("/liste")
+@RequestMapping("/lista")
 public class ListaContorller {
 
 
 
-	private String cartella = "moduli";
+	private String cartella = "liste";
 	
 	@Autowired
 	private ListaService service;
@@ -35,7 +35,7 @@ public class ListaContorller {
 
 	
 	
-	@GetMapping("/liste")
+	@GetMapping("/lista")
 	public String getModulo(@RequestParam("id_liste") long id, Model model, RedirectAttributes ra) {
 		
 		
@@ -43,8 +43,8 @@ public class ListaContorller {
 		
 		
 		if(l != null) {
-			model.addAttribute("liste",l);
-			return cartella + "/liste";
+			model.addAttribute("lista",l);
+			return cartella + "/lista";
 		}
 		
 		
@@ -71,7 +71,7 @@ public class ListaContorller {
 		
 	
 		if(service.salva(l))
-			return "redirect:/" +  cartella + "/modulo?id=" + l.getId();
+			return "redirect:/" +  cartella + "/lista?id=" + l.getId();
 		
 		
 		model.addAttribute("nuovo", l);
@@ -94,7 +94,7 @@ public class ListaContorller {
 		if(l != null) {
 		
 			
-			model.addAttribute("modulo", l);
+			model.addAttribute("lista", l);
 			
 			
 			return cartella + "/modifica";
@@ -110,14 +110,14 @@ public class ListaContorller {
 	
 	
 	@PostMapping("/aggiorna")
-	public String aggiorna(@ModelAttribute("modulo") Lista l, Model model) {
+	public String aggiorna(@ModelAttribute("lista") Lista l, Model model) {
 		
 		
 		if(service.salva(l)) 
-			return "redirect:/" + cartella + "/modulo?id=" + l.getId();
+			return "redirect:/" + cartella + "/lista?id=" + l.getId();
 	
 		
-		model.addAttribute("modulo", l);
+		model.addAttribute("lista", l);
 		model.addAttribute("messaggio", "ERRORE: controlla il nome");
 		
 		return cartella + "/modifica";
